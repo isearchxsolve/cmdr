@@ -217,7 +217,6 @@ func TestWaitUntilPanicFormatStillMatchesTheClassifier(t *testing.T) {
 
 // colorizedFailureRun is a VERBATIM excerpt of a real `pnpm check rust-tests` capture
 // from an agent session (M1 Max, cargo-nextest 0.9.136, 2026-08-21). nextest colours
-// its output whenever `FORCE_COLOR` / `CLICOLOR_FORCE` is set, which the Claude Code
 // harness and several terminals do, so a captured buffer is NOT plain text just
 // because it isn't a TTY.
 const colorizedFailureRun = "\x1b[32;1m        PASS\x1b[0m [   0.046s] (   8/6333) \x1b[35;1mcmdr\x1b[0m \x1b[36magent::chat::budget::tests\x1b[0m\x1b[36m::\x1b[0m\x1b[34;1ma_size_above_the_known_window_warns_and_is_still_used\x1b[0m\n" +

@@ -427,7 +427,7 @@ fn list_multipart_uploads_pages_by_markers() {
 
 #[test]
 fn a_share_link_is_a_presigned_get_for_the_object() {
-    let credentials = Credentials::new("AKIAIOSFODNN7EXAMPLE", "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY");
+    let credentials = Credentials::new("dummy_aws_key_placeholder", "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY");
     let now = UNIX_EPOCH + Duration::from_secs(1_369_353_600);
 
     let target = LinkTarget {
@@ -441,7 +441,7 @@ fn a_share_link_is_a_presigned_get_for_the_object() {
     assert_eq!(url.host_str(), Some("acct.r2.cloudflarestorage.com"));
     assert_eq!(url.path(), "/photos/a%20b.jpg");
     let query = url.query().unwrap();
-    assert!(query.contains("X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20130524%2Fauto%2Fs3%2Faws4_request"));
+    assert!(query.contains("X-Amz-Credential=dummy_aws_key_placeholder%2F20130524%2Fauto%2Fs3%2Faws4_request"));
     assert!(query.contains("X-Amz-Expires=3600"));
     assert!(query.contains("X-Amz-Signature="));
     assert_eq!(
@@ -452,7 +452,7 @@ fn a_share_link_is_a_presigned_get_for_the_object() {
 
 #[test]
 fn a_share_link_to_an_aws_bucket_elsewhere_names_its_region_and_endpoint() {
-    let credentials = Credentials::new("AKIAIOSFODNN7EXAMPLE", "secret");
+    let credentials = Credentials::new("dummy_aws_key_placeholder", "secret");
     let target = LinkTarget {
         bucket: "photos",
         key: "a",

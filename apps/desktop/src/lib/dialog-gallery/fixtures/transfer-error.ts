@@ -299,7 +299,7 @@ const perVariant: Record<WriteOperationError['type'], TransferErrorFixture> = {
     operationType: 'copy',
     error: {
       type: 'source_in_cold_storage',
-      path: 's3://AKIAIOSFODNN7EXAMPLE@s3.eu-west-1.amazonaws.com:443/family-photos/2019/holiday-raw.tar',
+      path: 's3://dummy_aws_key_placeholder@s3.eu-west-1.amazonaws.com:443/family-photos/2019/holiday-raw.tar',
     },
   },
   // A permanent delete of a project folder holding a mounted NAS share.
@@ -312,7 +312,7 @@ const perVariant: Record<WriteOperationError['type'], TransferErrorFixture> = {
     operationType: 'move',
     error: {
       type: 'source_changed',
-      path: 's3://AKIAIOSFODNN7EXAMPLE@nbg1.your-objectstorage.com:443/team-docs/2026/budget.xlsx',
+      path: 's3://dummy_aws_key_placeholder@nbg1.your-objectstorage.com:443/team-docs/2026/budget.xlsx',
     },
   },
   // The many-files branch: the body copy counts them and the details block lists

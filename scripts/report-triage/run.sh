@@ -32,7 +32,6 @@ done
 gh_token="$(secret TRIAGE_GH_TOKEN)"
 r2_key_id="$(secret TRIAGE_R2_ACCESS_KEY_ID)"
 r2_secret="$(secret TRIAGE_R2_SECRET_ACCESS_KEY)"
-# Claude Code's own login. Over SSH and under launchd the login keychain isn't reliably unlocked, so the headless
 # run authenticates with the box's OAuth token. settings.json strips it from every sandboxed command's environment
 # (`sandbox.credentials.envVars`), so only the claude process itself holds it.
 claude_token="$(secret CLAUDE_CODE_OAUTH_TOKEN)"
@@ -48,10 +47,8 @@ cd "$work"
 # outlive a run on this box: empty the folder before the run (in case one was killed) and after it (trap).
 rm -rf -- "$work/bundles"
 trap 'rm -rf -- "$work/bundles"' EXIT
-# SHELL + ZDOTDIR: Claude Code snapshots the user's shell setup (outside the sandbox) and replays it in every Bash
 # command, so without these the box's `~/.zshenv` re-exports its broad GH_TOKEN (over ours), CLOUDFLARE_API_TOKEN, and
 # the rest straight back into the agent's shell, undoing `env -i`. `/var/empty` is a root-owned empty dir, so zsh
-# finds no startup files to read (verified on the M1, Claude Code 2.1.299, 2026-10-14).
 #
 # A run gets 90 minutes, then SIGALRM stops it (perl's `alarm` survives the `exec`; macOS ships no `timeout`). Without
 # it, a stalled run waits forever, and launchd never starts the next day's run while one is still going: the 2026-10-15

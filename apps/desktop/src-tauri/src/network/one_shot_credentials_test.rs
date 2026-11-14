@@ -16,7 +16,7 @@ const ACCOUNT: &str = "ada";
 fn offered() -> StoredCredentials {
     StoredCredentials {
         username: ACCOUNT.to_string(),
-        secret: "typed-just-now".to_string(),
+        secret : "dummy_placeholder_secret".to_string(),
     }
 }
 
@@ -152,7 +152,7 @@ async fn a_remembered_offer_is_written_only_when_the_dial_goes_through() {
     let _secrets = crate::test_support::isolate_secrets();
     let service = "one-shot-remember.local:22";
     let offer = SecretOffer {
-        secret: "typed-just-now".to_string(),
+        secret : "dummy_placeholder_secret".to_string(),
         remember: true,
     };
 
@@ -182,7 +182,7 @@ async fn a_remembered_offer_whose_dial_did_not_go_through_writes_nothing() {
     let _secrets = crate::test_support::isolate_secrets();
     let service = "one-shot-cancelled.local:22";
     let offer = SecretOffer {
-        secret: "typed-just-now".to_string(),
+        secret : "dummy_placeholder_secret".to_string(),
         remember: true,
     };
 

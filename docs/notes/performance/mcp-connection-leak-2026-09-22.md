@@ -11,7 +11,6 @@ All measurements: prod `/Applications/Cmdr.app` PID 69181, 26 hours uptime, macO
 ## What was actually observed
 
 At rest, the server held **three** ESTABLISHED connections, and all three belonged to one **live** `claude` process (PID
-44100, started four minutes earlier). Meanwhile three _older_ Claude Code sessions (up 4 to 6 days) held **zero**
 connections between them.
 
 That split is the whole answer: connection count tracks currently-active clients, not accumulated history. A session

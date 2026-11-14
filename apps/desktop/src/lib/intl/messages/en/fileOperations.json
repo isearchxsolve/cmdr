@@ -329,13 +329,11 @@
 
   "fileOperations.mkdir.aiSuggestionsAria": "AI suggestions",
   "@fileOperations.mkdir.aiSuggestionsAria": {
-    "description": "Accessibility label for the region listing AI-generated folder-name suggestions (screen-reader only). 'AI' is the common abbreviation.",
     "screenshot": "mkdir-confirmation-empty.png"
   },
 
   "fileOperations.mkdir.aiSuggestionsHeader": "AI suggestions:",
   "@fileOperations.mkdir.aiSuggestionsHeader": {
-    "description": "Heading shown above the AI-generated folder-name suggestion chips in the new-folder dialog. 'AI' is the common abbreviation.",
     "screenshot": "mkdir-confirmation-empty.png"
   },
 

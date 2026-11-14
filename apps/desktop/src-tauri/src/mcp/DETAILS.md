@@ -477,7 +477,6 @@ The token is a fresh CSPRNG value (`Uuid::new_v4`, 122 random bits), generated o
 
 It then sends `Authorization: Bearer <token>` on every `/mcp` request. `scripts/mcp-call.sh` already does this (reads `<data_dir>/mcp.token`, or `CMDR_MCP_TOKEN`); the E2E harness fetches it via the `get_mcp_token` Tauri IPC. The app's own frontend does NOT talk to this HTTP server (it uses the separate Tauri MCP bridge), so it needs no token.
 
-An ordinary JSON-RPC request rejection is an **in-band error at HTTP 200, not a 401**. The MCP Streamable-HTTP spec reserves HTTP 401 for an OAuth challenge, so a 401 makes clients (Claude Code, etc.) launch an OAuth discovery flow and surface a confusing "Invalid OAuth error response" instead of our message. A 200 + JSON-RPC `error` preserves the request id and renders client-side as `MCP error <code>: <message>` (the same path `nav_to_path`'s "path does not exist" takes). Our local bearer token isn't OAuth, so it must not look like one. Notifications have no id to correlate, and GET/SSE has no JSON-RPC envelope, so those reject with HTTP 403 and an empty body.
 
 **The token must not reach a LOG either, and that is enforced by a type rather than a rule.** Both handlers take `SafeHeaders` (`safe_headers.rs`), a newtype over `HeaderMap` whose `Debug` renders the `authorization` value as `<redacted>` and everything else verbatim; the raw map never enters either handler, so a `{:?}` on the headers is safe by construction. It replaced a rule-shaped fix that patched only the POST route and left the SSE one leaking — which is the shape to avoid here, because a header dump is the natural thing to reach for while debugging a transport. The SSE route is precisely where a client sends `Authorization` to open the stream. Pinned by `both_routes_take_redacting_headers`, which fails to COMPILE if either handler goes back to a bare `HeaderMap`.
 
@@ -489,7 +488,6 @@ If `CMDR_MCP_TOKEN` is set and non-empty (after trim) when the server starts, th
 
 ### Connecting an external MCP client
 
-To let an external MCP client (for example Claude Code) connect, export `CMDR_MCP_TOKEN` for the running Cmdr and add a matching header to the server entry in `.mcp.json`:
 
 ```json
 {

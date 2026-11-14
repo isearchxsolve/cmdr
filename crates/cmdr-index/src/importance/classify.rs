@@ -197,7 +197,6 @@ const HOME_CONTENT_FOLDERS: &[&str] = &["Downloads", "Desktop", "Documents"];
 ///
 /// Evidence (2026-09-03, read out of the live `importance-root.db`): before these
 /// were listed, `/private/tmp` stored at `score=0.898` with
-/// `pathClass=projectRoot`, because Claude Code writes background task output under
 /// `/private/tmp/claude-501/...` and the marker promotion fired on it. That held the
 /// agent's wake interest above its `0.7` hot threshold continuously.
 const TEMP_ROOTS: &[&str] = &[

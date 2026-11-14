@@ -2,7 +2,7 @@ import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest'
 import { TRIAGE_OPTION_ID, addIssueToBoard, resolveBoardTarget, verifyGitHubWebhook } from './project-board'
 import type { Bindings } from './types'
 
-const secret = 'a-webhook-secret'
+const secret = "dummy_placeholder_secret"
 
 /** The signature GitHub would send for `body` under `secret`. */
 async function sign(body: string, key = secret): Promise<string> {

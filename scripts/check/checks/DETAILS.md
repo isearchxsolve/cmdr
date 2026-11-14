@@ -603,7 +603,6 @@ the real entry point can find every doc. `docs_graph.go` builds the graph (share
 
 How reachability is decided (`BuildDocGraph`):
 
-- **One root, the repo-root `CLAUDE.md`.** It's the true entry point: Claude Code loads it first, and it `@import`s
   `AGENTS.md` + the core docs. A doc is reached when a doc already reached from the root references it. BFS, so each doc
   is placed under its closest-to-root reference (a cycle just hits an already-reached node and stops). The root itself
   is never an orphan.
@@ -612,7 +611,6 @@ How reachability is decided (`BuildDocGraph`):
   suffix), because over-connecting only hides a would-be orphan, while a false orphan would be a noisy CI failure.
 - **The CLAUDE.md asymmetry:** a `DETAILS.md` or `docs/` file must be named, but a `CLAUDE.md` also counts as reached
   when a reachable doc mentions its _directory_ (`architecture.md` lists most subsystems as `` `some/dir/` ``, and
-  Claude Code auto-injects a `CLAUDE.md` from its directory regardless). Such edges are tagged `ViaDir`; the renderer
   shows "(dir reference)".
 - **Everything under `docs/` is enforced, including `docs/specs` and `docs/notes`.** Those dirs are periodically-wiped
   scratch, but they must still be discoverable while they exist: specs hang off `docs/specs/DETAILS.md`, and a note is
@@ -1221,7 +1219,6 @@ deadline.
 Gotchas for anyone touching this:
 
 - **❗ Captured nextest output is NOT plain text.** nextest colours whenever `FORCE_COLOR` / `CLICOLOR_FORCE` is set,
-  which the Claude Code harness does, so "we piped it into a buffer, so there's no TTY" is not a reason to skip
   normalising. Every pattern here is line-anchored, so a colourised buffer matches NOTHING and the lane degrades in
   total silence: no deadline diagnosis, no contention re-run, no rows in
   `~/.local/share/check-runner/cmdr/test-log.csv`, no retry-pass warn, and a 1.2 MB raw dump because the progress

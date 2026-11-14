@@ -543,7 +543,7 @@ async fn remembering_another_accounts_sign_in_files_the_share_its_own() {
 
     vol.remember_sign_in(SignIn {
         username: "grace".to_string(),
-        secret: "grace-pw".to_string(),
+        secret : "dummy_placeholder_secret".to_string(),
         remember: true,
     })
     .await

@@ -16,7 +16,6 @@ import (
 
 // This file enriches the `--docs-graph` tree with real usage: for every doc node,
 // how many agent sessions in a recent window read it and how many wrote it. The
-// data source is the Claude Code transcript store at `~/.claude/projects/`.
 //
 // Model (see docs_graph_render.go's header and scripts/check/DETAILS.md for the
 // rationale):
@@ -24,7 +23,6 @@ import (
 //     subagents and team members already count separately.
 //   - A file is "touched" when a session's Read/Edit/Write/MultiEdit/NotebookEdit
 //     names it. Every touch of a file loads the CLAUDE.md of that file's directory
-//     and every ancestor directory (Claude Code's autoload), plus those CLAUDE.md
 //     files' transitive `@`-imports (root CLAUDE.md `@import`s AGENTS.md). Plain
 //     Markdown links do NOT autoload, so DETAILS.md and docs/ files are counted as
 //     read only when a session explicitly Reads them.

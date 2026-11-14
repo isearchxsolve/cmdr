@@ -103,13 +103,10 @@ Module paths follow the Rust crate structure: `cmdr_lib::mcp`, `cmdr_lib::networ
 ## Working with AI agents
 
 AI agents write almost all of Cmdr's code, and the repo is set up so any agent can do well here. This section helps you
-mirror the maintainer's setup, whether you use Claude Code, Codex, or something else.
 
 ### What your agent reads
 
-- **`AGENTS.md`** at the root is the hub, and every project rule lives in it. Claude Code loads it through the root
   `CLAUDE.md` (a one-line `@AGENTS.md`); Codex, Cursor, and most other agents load it on their own.
-- **Colocated `CLAUDE.md` files** hold each area's must-knows (with a `DETAILS.md` beside each for depth). Claude Code
   loads them automatically when it touches a directory. Other agents don't, so `AGENTS.md` tells them to read the chain
   before working in a directory. To confirm yours does, ask it which instruction files it read before its first edit.
 - **Codex specifics**: it reads `AGENTS.md` files only on the path from the repo root to the directory you launch it in,
@@ -119,7 +116,6 @@ mirror the maintainer's setup, whether you use Claude Code, Codex, or something 
 
 ### MCP servers
 
-`.mcp.json` lists three, and Claude Code picks them up from there:
 
 - **`cmdr-dev`** (`http://127.0.0.1:19225/mcp`) and **`cmdr-prod`** (`http://127.0.0.1:19224/mcp`): Cmdr's own MCP
   server inside a running dev or prod build, for driving the app and reading its state. Every request needs a bearer
@@ -156,7 +152,6 @@ MCP, so your agent finds symbols, callers, and flows in one call instead of a gr
 agents to use it when it's there.
 
 1. Install it: `npm i -g @colbymchenry/codegraph`.
-2. Wire it into your agent: `codegraph install` detects Claude Code, Codex, Cursor, and others, and registers
    `codegraph serve --mcp` with each.
 3. Index the repo: `codegraph init` at the repo root (`.codegraph/` is gitignored).
 4. Expose the full tool set, not just `codegraph_explore`: set

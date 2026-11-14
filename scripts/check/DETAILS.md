@@ -94,7 +94,6 @@ Code transcript store at `~/.claude/projects/`. The model:
   worktree or the target clone lands on the same node. Paths outside the repo, and files in since-moved locations, are
   dropped (accepted data loss).
 - **Read count = sessions where the doc was loaded.** A touch of any file loads the `CLAUDE.md` of that file's directory
-  and every ancestor directory (Claude Code's autoload), plus those files' transitive `@`-imports (root `CLAUDE.md`
   `@import`s `AGENTS.md`; plain Markdown links do NOT autoload). `DETAILS.md` and `docs/` files therefore only score a
   read when a session explicitly `Read`s them.
 - **Write count = sessions that `Edit`/`Write` the doc.** A doc created fresh via `Write` can show writes > reads.

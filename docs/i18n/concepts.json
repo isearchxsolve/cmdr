@@ -26,7 +26,7 @@
     "distinct": ["secret-access-key"],
     "en": "access key ID",
     "match": ["access key id", "access key ids"],
-    "sense": "The public half of an S3 key pair, typed in the S3 form (like AKIAIOSFODNN7EXAMPLE)."
+    "sense": "The public half of an S3 key pair, typed in the S3 form (like dummy_aws_key_placeholder)."
   },
   "accessibility": {
     "distinct": ["system-settings-pane"],

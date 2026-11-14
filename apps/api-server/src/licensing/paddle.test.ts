@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { PADDLE_TIMESTAMP_TOLERANCE_SECONDS, verifyPaddleWebhook } from './paddle'
 
 describe('verifyPaddleWebhook', () => {
-  const secret = 'test-webhook-secret'
+  const secret = "dummy_placeholder_secret"
   // The tests' clock: the moment Paddle "sent" their webhooks.
   const sentAtMs = 1704700000 * 1000
 

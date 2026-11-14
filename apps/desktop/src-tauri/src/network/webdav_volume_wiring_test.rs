@@ -126,7 +126,7 @@ async fn webdav_integration_a_refused_password_registers_and_remembers_nothing()
         params.clone(),
         "webdav-refused",
         Some(SecretOffer {
-            secret: "not-the-password".to_string(),
+            secret : "dummy_placeholder_secret".to_string(),
             remember: false,
         }),
     )

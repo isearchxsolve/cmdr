@@ -16,7 +16,6 @@ Docs load in three concentric rings, by how often an agent needs them:
   nothing else: no `.claude/rules/`, no colocated `CLAUDE.md`, and no `@`-imports. So the project keeps no
   `.claude/rules/` (every project rule lives in `AGENTS.md`), `AGENTS.md` itself tells agents to read the `C.md` chain,
   and a rule an agent needs never lives only in David's user-level `~/.claude/`. Contributor setup: `CONTRIBUTING.md`.
-- **Path-scoped (colocated `CLAUDE.md`)**: Claude Code auto-injects them when an agent touches a directory; other agents
   read them because `AGENTS.md` § Docs says to. Must-knows only. Area rules live here too (Rust + Tauri rules in
   `apps/desktop/src-tauri/CLAUDE.md`, frontend rules in `apps/desktop/src/CLAUDE.md`, testing rules in
   `apps/desktop/test/CLAUDE.md`), so an agent working on another app never loads them.

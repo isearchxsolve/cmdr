@@ -151,7 +151,6 @@
   },
   "search.walkHandoff.running": "Still searching for {label}",
   "@search.walkHandoff.running": {
-    "description": "Headline of the toast shown in the main window when a search kept running after the user sent its results to a pane. A spinner sits next to it. {label} is the short name of the search (the query text, or the AI-generated title). The label is uncontrolled: whatever the user typed, or a title the AI wrote, in any language, length, or casing. Build the sentence so it reads right around any text, without inflecting it.",
     "placeholders": {
       "label": "the search's short name, e.g. \"*.pdf\" or \"tax paperwork\""
     },
@@ -193,7 +192,6 @@
   },
   "search.walkHandoff.finished": "{count, plural, one {Found # match} other {Found # matches}} for {label}.",
   "@search.walkHandoff.finished": {
-    "description": "Toast that replaces the still-searching one when the search finishes having covered everything. It fades on its own. Use countText for the digits if your language needs them grouped. The label is uncontrolled (the user’s query text or an AI-written title); build the sentence so it reads right around any text, without inflecting it.",
     "placeholders": {
       "count": "the final number of matches, for plural selection",
       "countText": "the same number, already formatted with thousands separators",
@@ -204,7 +202,6 @@
   },
   "search.walkHandoff.stoppedShort": "The results for {label} may be short: Cmdr didn’t get through everything.",
   "@search.walkHandoff.stoppedShort": {
-    "description": "Toast that replaces the still-searching one when the search ended without covering everything (stopped, the drive went away, or folders it had to give up on). It fades on its own. Reopening the search shows the detail. Avoid the words 'error' and 'failed'. The label is uncontrolled (the user’s query text or an AI-written title); build the sentence so it reads right around any text, without inflecting it.",
     "placeholders": {
       "label": "the search's short name, e.g. \"*.pdf\" or \"tax paperwork\""
     },
@@ -213,7 +210,6 @@
   },
   "search.walkHandoff.superseded": "Cmdr stopped adding to the results for {label}, because your new search took over.",
   "@search.walkHandoff.superseded": {
-    "description": "Toast shown when the user starts a new search while an older one was still filling a pane. The pane keeps what it has; only the additions stop. It fades on its own. The label is uncontrolled (the user’s query text or an AI-written title); build the sentence so it reads right around any text, without inflecting it.",
     "placeholders": {
       "label": "the older search's short name, e.g. \"*.pdf\" or \"tax paperwork\""
     },

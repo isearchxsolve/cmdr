@@ -18,10 +18,10 @@ use crate::request::{Body, S3Request};
 
 const HOST: &str = "examplebucket.s3.amazonaws.com";
 const EMPTY_SHA256: &str = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
-const CREDENTIAL: &str = "AKIAIOSFODNN7EXAMPLE/20130524/us-east-1/s3/aws4_request";
+const CREDENTIAL: &str = "dummy_aws_key_placeholder/20130524/us-east-1/s3/aws4_request";
 
 fn credentials() -> Credentials {
-    Credentials::new("AKIAIOSFODNN7EXAMPLE", "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY")
+    Credentials::new("dummy_aws_key_placeholder", "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY")
 }
 
 fn example_time() -> AmzTime {
@@ -238,7 +238,7 @@ fn a_presigned_get_matches_the_aws_query_auth_example() {
     assert_eq!(
         url.as_str(),
         "https://examplebucket.s3.amazonaws.com/test.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256\
-         &X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20130524%2Fus-east-1%2Fs3%2Faws4_request\
+         &X-Amz-Credential=dummy_aws_key_placeholder%2F20130524%2Fus-east-1%2Fs3%2Faws4_request\
          &X-Amz-Date=20130524T000000Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host\
          &X-Amz-Signature=aeeed9bbccd4d02ee5c0109b86d86835f995330da4c265957d157751f604d404"
     );
@@ -307,7 +307,7 @@ fn a_gcs_dialect_request_signs_as_goog4_with_its_headers_spelled_x_goog() {
     assert_eq!(header(&signed, "x-goog-content-sha256"), EMPTY_SHA256);
     assert_eq!(
         header(&signed, "authorization"),
-        "GOOG4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20130524/auto/storage/goog4_request,\
+        "GOOG4-HMAC-SHA256 Credential=dummy_aws_key_placeholder/20130524/auto/storage/goog4_request,\
          SignedHeaders=host;x-goog-content-sha256;x-goog-date;x-goog-if-generation-match;x-goog-meta-mtime,\
          Signature=6b48bb01aa54e0137ebe804932fa44fd35ea159c8ba2f2bc07ea7382551bdd9e"
     );
@@ -352,7 +352,7 @@ fn metadata_written_gcs_s_way_is_spelled_x_goog_and_read_back_as_x_amz() {
 #[test]
 fn debug_never_prints_the_secret() {
     let printed = format!("{:?}", credentials());
-    assert!(printed.contains("AKIAIOSFODNN7EXAMPLE"));
+    assert!(printed.contains("dummy_aws_key_placeholder"));
     assert!(!printed.contains("wJalrXUtnFEMI"));
 }
 

@@ -51,7 +51,7 @@ export const serverSignInFixtures: Record<string, SignInSheetFixture | undefined
   'add-s3': {
     request: {
       mode: 'add',
-      prefill: 's3://AKIAIOSFODNN7EXAMPLE@s3.eu-west-1.amazonaws.com:443/photos',
+      prefill: 's3://dummy_aws_key_placeholder@s3.eu-west-1.amazonaws.com:443/photos',
       attempt: answering({ kind: 'refused', refusal: 'region_mismatch', region: 'us-east-2' }),
     },
   },
@@ -64,7 +64,7 @@ export const serverSignInFixtures: Record<string, SignInSheetFixture | undefined
         displayName: 'photos',
         address: 's3.eu-west-1.amazonaws.com/photos',
         host: 's3.eu-west-1.amazonaws.com',
-        username: 'AKIAIOSFODNN7EXAMPLE',
+        username: 'dummy_aws_key_placeholder',
       },
       shape: { kind: 'access_keys' },
       attempt: answering({ kind: 'refused', refusal: 'access_denied' }),

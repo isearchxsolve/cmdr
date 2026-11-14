@@ -61,7 +61,6 @@ Ranked by what losing them costs a user.
   serving `latest.json`, or a signing key.
 - **The backend and its subprocessors** (Cloudflare, PostHog, GitHub, Resend, Google, AWS SES, Paddle, Hetzner): hold
   report and telemetry data, never file contents.
-- **A malicious dependency or contributor.** One maintainer, AI-assisted development, outside PRs accepted
   (`docs/guides/handling-prs.md`).
 
 ## Trust boundaries

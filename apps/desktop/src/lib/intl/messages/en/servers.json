@@ -875,7 +875,7 @@
   },
   "servers.sheet.accessKeyId": "Access key ID",
   "@servers.sheet.accessKeyId": {
-    "description": "Label of the field in the S3 form where the user types the access key ID, the public half of an S3 key pair (like AKIAIOSFODNN7EXAMPLE). Use the term the providers’ consoles use in your language.",
+    "description": "Label of the field in the S3 form where the user types the access key ID, the public half of an S3 key pair (like dummy_aws_key_placeholder). Use the term the providers’ consoles use in your language.",
     "screenshot": "server-sign-in-add-s3.png"
   },
   "servers.sheet.secretAccessKey": "Secret access key",

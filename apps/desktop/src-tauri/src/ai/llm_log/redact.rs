@@ -103,7 +103,7 @@ mod tests {
         // The mandated case: a WebRequestData-shaped value carrying the user's key in the
         // Authorization header AND in a `?key=` URL query. After redaction, no key material
         // survives anywhere in the value.
-        let secret = "sk-live-SUPERSECRETKEY123";
+        let secret = "dummy_placeholder_secret";
         let mut value = json!({
             "url": format!("https://generativelanguage.googleapis.com/v1beta/models?key={secret}"),
             "headers": {

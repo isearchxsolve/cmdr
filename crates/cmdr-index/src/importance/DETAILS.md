@@ -70,7 +70,6 @@ This deliberately reuses the existing floor rather than adding a parallel concep
 root holds floors with it.
 
 **Why (2026-09-03, read out of the live `importance-root.db`):** `/private/tmp` was stored at `score=0.898` with
-`pathClass=projectRoot`. Claude Code writes background task output under `/private/tmp/claude-501/...`, so the agent's
 wake pipeline (`interest = importance_weight * intent_share`, hot above `0.7`) fired on ordinary dev work at the shipped
 five-second cadence: about 120 model calls an hour, 374,127 Qwen tokens in seven minutes.
 

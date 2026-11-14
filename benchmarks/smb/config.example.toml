@@ -7,7 +7,7 @@ name = "qnap"
 host = "192.168.1.111"
 share = "naspi"
 username = "your-username"
-password = "your-password"
+password = "dummy_placeholder_secret"
 # Where the share is mounted on macOS (for native comparison)
 native_mount = "/Volumes/naspi"
 

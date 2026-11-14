@@ -44,7 +44,7 @@
     import type { NfsFormFields } from './nfs-form'
 
     /** A made-up access key ID in AWS's shape, for the placeholder. AWS's own documentation example. */
-    const ACCESS_KEY_ID_EXAMPLE = 'AKIAIOSFODNN7EXAMPLE'
+    const ACCESS_KEY_ID_EXAMPLE = 'dummy_aws_key_placeholder'
 
     /**
      * What the address field takes, per selected protocol. ❗ Keyed by the TOGGLE, like

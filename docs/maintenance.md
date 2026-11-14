@@ -65,7 +65,6 @@ automate it, and survives `oxfmt` (which collapses whitespace in regular markdow
 - **Review file structure**: Step back, look at the directory tree, and ask whether things still live in the right
   places after the last quarter of growth. Reorganize where it earns its keep. Frequency: quarterly, or after a major
   feature lands.
-- **Replace AI-generated content with handcrafted**: Walk user-facing surfaces (icons, marketing copy, privacy policy,
   error messages) and replace anything that smells like AI slop. Frequency: ad hoc, but check at least quarterly.
 - **Review a11y-coverage exemptions**: Walk `scripts/check/checks/a11y-coverage-allowlist.json`; for each exempt
   component, verify the reason still holds and whether a tier-3 a11y test is now practical. The automated check already
@@ -215,7 +214,6 @@ Newest-first. Tab-separated columns: `date`, `hash(es)`, `task`, `comment`.
 2026-02-05	88428a93	Split files that grew too big	Split several big Rust files in one pass.
 2026-02-05	1a37b352	Review file structure	Reorganized file_system module structure.
 2026-02-03	e7f41d74	Dead code sweep	MTP: deleted dead code.
-2026-01-28	7b188f29	Replace AI-generated content with handcrafted	Cleaned up AI-generated code that had slipped into the codebase.
 2026-01-22	ababb825	Split files that grew too big	Split write_operations.rs because it grew too large to fit into agent contexts; first documented split driven by agent-context size.
 2026-01-20	d327cf49	Tighten linter rules	#![warn(clippy::allow_attributes_without_reason)] + backfilled reasoning on every existing #[allow].
 2026-01-20	1bc16349	AI-smell / inelegance review	Extracted all rgba() calls and var() fallback values from Svelte files into CSS variables; added a lint rule forbidding future fallbacks.
@@ -224,7 +222,6 @@ Newest-first. Tab-separated columns: `date`, `hash(es)`, `task`, `comment`.
 2026-01-18	165a19d7	AI-smell / inelegance review	Deduplicated Rust code across modules.
 2026-01-18	7cbf6357	Dead code sweep	Removed unused CSS classes.
 2026-01-18	ae142521	Security advisory sweep	Patched a vulnerable npm dep in the license-server app (earliest security-driven dep bump on record).
-2026-01-13	df3c162a	Replace AI-generated content with handcrafted	Replaced AI-generated privacy policy with a handcrafted one.
 2026-01-13	34bc38de	Purge old specs	Moved old specs into a new /specs folder (first spec reorganization event).
 2026-01-13	eb47a916	Review file structure	Restructured the /docs folder.
 2026-01-13	7d0d78fe	Refresh AGENTS.md	Cleaned up AGENTS.md.
@@ -233,7 +230,6 @@ Newest-first. Tab-separated columns: `date`, `hash(es)`, `task`, `comment`.
 2026-01-05	b338bf4b	Bump pinned tool versions in .mise.toml	Updated code to be compatible with Rust 1.92.0 (toolchain pin changed).
 2026-01-04	a778dccd	Tighten linter rules	First introduction of Stylelint; fixed all existing CSS violations in one pass.
 2025-12-30	6e4e630c	Bump Rust crates	Blanket update of all Rust deps.
-2025-12-29	fa754490	Replace AI-generated content with handcrafted	Replaced AI-generated Dropbox icons with handcrafted ones.
 2025-12-25	08740386	Refresh AGENTS.md	Added the very first AGENTS.md (root).
 2025-12-25	9da9de16	Bump npm packages	First-ever npm bump: brought all frontend packages to latest right after project init.
 ```

@@ -153,7 +153,7 @@ describe('CloudProviderSetup', () => {
     keyInput.dispatchEvent(new Event('input', { bubbles: true }))
     // Save debounce is 300 ms; connection check debounce 1000 ms.
     await advanceTimers(400)
-    expect(saveAiApiKey).toHaveBeenCalledWith({ providerId: 'openai', apiKey: 'sk-test-key' })
+    expect(saveAiApiKey).toHaveBeenCalledWith({ providerId: 'openai', apiKey : "dummy_placeholder_secret" })
     await advanceTimers(1100)
     expect(checkAiConnection).toHaveBeenCalled()
   })
@@ -445,7 +445,7 @@ describe('CloudProviderSetup', () => {
     mounted = { target, instance, providerId: 'anthropic' }
     await settle()
     // The flushPendingApiKeySave path saves against the OLD provider, not the new one.
-    expect(saveAiApiKey).toHaveBeenCalledWith({ providerId: 'openai', apiKey: 'sk-mid-flight' })
+    expect(saveAiApiKey).toHaveBeenCalledWith({ providerId: 'openai', apiKey : "dummy_placeholder_secret" })
   })
 
   it('renders without a preset block when the providerId is unknown', async () => {

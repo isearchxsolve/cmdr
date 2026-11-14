@@ -9,7 +9,6 @@ channel = "1.99.1"
 # the runner picks them up automatically — without this, every CI Rust job
 # fails at the rustfmt step.
 # `rust-analyzer` backs no CI check; it powers code intelligence for editors and
-# for agent sessions (Claude Code's LSP tool spawns the rustup `rust-analyzer`
 # shim, which resolves against this pin). Listing it here is what keeps it alive
 # across pin bumps: added manually with `rustup component add`, it vanishes the
 # next time Renovate moves `channel`, and the breakage reads like a rust-analyzer

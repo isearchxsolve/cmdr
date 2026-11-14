@@ -62,7 +62,6 @@ type RustFailure struct {
 }
 
 // ansiSGRRE matches the colour escapes nextest writes into its output. It colours
-// whenever `FORCE_COLOR` / `CLICOLOR_FORCE` is set, which the Claude Code harness and
 // several terminals do, so a captured (non-TTY) buffer is NOT plain text by default.
 // Every parser below is line-anchored, so an unnormalised buffer matches NOTHING and
 // the whole apparatus degrades in silence: no deadline diagnosis, no isolated re-run,

@@ -127,7 +127,7 @@ async fn a_sign_in_that_connects_refreshes_a_remembered_secret() {
     volume
         .reconnect_with_credentials(cmdr_fs::volume::secret_store::SignIn {
             username: "ada".to_string(),
-            secret: "the-new-one".to_string(),
+            secret : "dummy_placeholder_secret".to_string(),
             remember: false,
         })
         .await

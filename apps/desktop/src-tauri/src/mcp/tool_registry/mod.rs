@@ -60,7 +60,6 @@ pub struct Tool {
 /// tools ([`execute_tool`] refuses a name outside the caller's view).
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Consumer {
-    /// External MCP clients over the HTTP transport (dev tooling, Claude Code, E2E).
     AiClient,
     /// The in-process Ask Cmdr agent runtime, which dispatches the agent view via
     /// [`execute_tool`] with this identity (`crate::agent::tools`).

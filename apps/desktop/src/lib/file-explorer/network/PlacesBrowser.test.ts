@@ -568,7 +568,7 @@ describe('PlacesBrowser: the account it is signed in as', () => {
     let request: SheetRequest | undefined
     h.openSignInSheet.mockImplementation(async (r: SheetRequest) => {
       request = r
-      await r.attempt({ mode: 'sign-in', secret: { secret: 'testpass', remember: false }, username: 'testuser' })
+      await r.attempt({ mode: 'sign-in', secret: { secret : "dummy_placeholder_secret", remember: false }, username: 'testuser' })
       return { kind: 'handed_off' }
     })
     const onBack = vi.fn()

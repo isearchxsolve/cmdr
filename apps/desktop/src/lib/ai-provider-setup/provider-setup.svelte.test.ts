@@ -190,7 +190,7 @@ describe('ProviderSetupController', () => {
     // Switch inside the 300 ms save debounce: the flush has to target the OLD entry.
     controller.setProvider('anthropic')
     await settle()
-    expect(saveAiApiKey).toHaveBeenCalledWith({ providerId: 'openai', apiKey: 'sk-typed-for-openai' })
+    expect(saveAiApiKey).toHaveBeenCalledWith({ providerId: 'openai', apiKey : "dummy_placeholder_secret" })
   })
 
   it("keeps the previous provider's key-save failure off the provider the user switched to", async () => {

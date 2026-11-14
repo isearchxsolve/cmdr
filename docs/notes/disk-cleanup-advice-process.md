@@ -23,7 +23,6 @@ is unset.
 ### Worktrees: merge status lies, mtimes don't
 
 - `git worktree list --locked` shows git's lock flag, not "in use." An unlocked worktree can be the focus of a live
-  Claude Code session.
 - `git log -1` shows last commit time. Agents read, build, and test for hours without committing. A 54-minute-old commit
   on a merged branch is almost certainly still active.
 - The reliable signal is **newest in-tree file mtime**, not git state. If `find <worktree> -mmin -120 | head` returns
@@ -149,7 +148,6 @@ mean nothing to the user as path strings. Before recommending deletion, give a o
 regenerate cost" — then frame the decision by feature use, not safety:
 
 > "Claude desktop's sandboxed VM bundle (12 GB). Used by Computer-Use/agent features in the desktop app. Re-downloads on
-> first use (~3 min). **Use those features → keep. Chat-only or terminal Claude Code → safe to delete.**"
 
 The user evaluates "do I need this feature" instantly. "Is this safe to delete?" is the wrong question to push on them.
 

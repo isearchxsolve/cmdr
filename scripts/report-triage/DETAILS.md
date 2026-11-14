@@ -13,18 +13,15 @@ The layers, outermost first (schema verified against code.claude.com docs, 2026-
    meant to read anyway. The claude process also gets the box's `CLAUDE_CODE_OAUTH_TOKEN` (the keychain login isn't
    reliable over SSH or launchd); `sandbox.credentials.envVars` strips it, and the box's other secret names, from every
    Bash command.
-2. **The agent's shell**: `env -i` alone isn't enough. Claude Code snapshots the user's shell startup outside the
    sandbox and replays it in each Bash command, so the box's `~/.zshenv` put its broad `GH_TOKEN` (overriding ours),
    `CLOUDFLARE_API_TOKEN`, `GH_PROJECT_TOKEN`, and `CARGO_REGISTRY_TOKEN` back into the agent's env. `run.sh` sets
    `SHELL=/bin/zsh` and `ZDOTDIR=/var/empty` (root-owned, empty) so zsh reads no startup files (verified on the M1 with
-   a probe script fingerprinting `GH_TOKEN`, Claude Code 2.1.299, 2026-10-14).
 3. **Network**: the Bash sandbox allows `api.github.com` and Cmdr's own R2 account host only, with `failIfUnavailable`
    and `allowUnsandboxedCommands: false`, so nothing can be exfiltrated to a third host and a missing sandbox stops the
    run rather than weakening it.
 4. **Tools**: `--tools Bash,Read,Grep,Glob` (no Write, Edit, WebFetch, WebSearch), `--strict-mcp-config` with no
    servers, `--setting-sources project,local` (no user settings or hooks), `--permission-mode dontAsk` plus
    `--permission-prompts none`: anything not in `settings.json`'s allow list is refused, never prompted. `Read(./**)`
-   covers Grep and Glob too (Claude Code warns that `Grep(...)`/`Glob(...)` rules aren't matched; Read rules cover all
    file-reading tools).
 5. **Paths**: the sandbox denies reading the whole home dir except the working dir (`denyRead: ["~/"]` plus
    `allowRead`), and `permissions.deny` blocks the Read tool from the secret-bearing paths, because the sandbox doesn't
@@ -83,7 +80,6 @@ Card ratings.
 
 ## Why the M1 box
 
-Claude Code cloud routines can be scoped (a dedicated environment with a custom network allowlist and network secrets,
 the GitHub proxy limited to attached repos), but every routine on this account attaches all connectors by default
 (Gmail, Drive, Calendar) and the shared environment has default network access. Locking that down is UI work per
 environment and per routine, invisible to review. On the M1 box every layer is a file in this directory.

@@ -20,7 +20,6 @@ import (
 // `@import`, a backtick path, or a bare path token: we watch intent, not syntax.
 // The one asymmetry: a DETAILS.md or a docs/ file must be named, but a CLAUDE.md
 // is reached by a mention of its *directory* too (architecture.md lists most
-// subsystems as `` `some/dir/` ``, and Claude Code auto-injects a CLAUDE.md from
 // its directory anyway). Such an edge is tagged ViaDir so the graph view can show
 // "(dir reference)".
 

@@ -22,7 +22,6 @@ import (
 // PR pointer (`docs/guides/handling-prs.md`).
 const residentDocBudgetWords = 2100
 
-// claudeImportRe captures @-import tokens in a CLAUDE.md. Claude Code treats a
 // leading-@ token as a file import; we resolve each against the filesystem and
 // keep only the ones that name a real file, which naturally drops npm package
 // names (`@iconify-json/lucide`), JSDoc tags (`@param`), and emails
